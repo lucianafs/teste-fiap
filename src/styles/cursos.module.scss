@@ -1,0 +1,312 @@
+.cursos {
+  width: 100%;
+  height: 100vh;
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .wrapper{
+    width: 100%;
+    max-width: 84.6875rem;
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 2rem;
+    position: relative;
+  }
+
+  .header{
+    width: 100%;
+    height: auto;
+    text-align: left;
+
+    .title {
+      color: #FFFFFF;
+      font-family: var(--font-gotham-book);
+      font-weight: 500;
+      font-size: 5.75rem;
+      line-height: 5.75rem;
+      letter-spacing: normal;
+      margin: 0;
+    }
+
+    .subtitle{
+      color: #F80D5A;
+      font-family: var(--font-gotham-book);
+      font-weight: 500;
+      font-size: 1.375rem;
+      line-height: normal;
+      letter-spacing: normal;
+      margin: 0;
+    }
+  }
+
+  .menu {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 6.25rem;
+    align-items: center;
+    align-content: center;
+
+    .menuItem {
+      color: #8A959B;
+      font-family: var(--font-gotham-book);
+      font-weight: 500;
+      font-size: 1.0625rem;
+      line-height: 1.875rem;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-top: none;
+      transition: color 0.2s;
+      position: relative;
+      padding-top: .3125rem;
+
+      &::after {
+        content: "";
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: .375rem;
+        width: 0;
+        background: #F80D5A;
+        transition: width 0.3s;
+        z-index: 1;
+      }
+
+      &.active::after {
+        width: 2.4375rem;
+      }
+    }
+
+    .menuItem:hover,
+    .menuItem.active {
+      color: #FFFFFF;
+
+    }
+  }
+
+  .courseContent {
+    width: 100%;
+    min-height: 7.5rem;
+    grid-column: 1;
+    margin-top: 6.5625rem;
+
+    .courseTitle{
+      color: #ffffff;
+      font-family: var(--font-gotham-book);
+      font-weight: 500;
+      font-size: 3.4375rem;
+      line-height: 1.875rem;
+      opacity: 0;
+      animation: fadeInOnly 0.5s forwards;
+      animation-delay: 0.1s;
+      margin: 0;
+    }
+
+    .courseDescription{
+      margin-top: 7.8125rem;
+
+      ul{
+        list-style-type: none;
+        list-style-position: inside;
+        padding: 0;
+        margin: 0;
+
+        li{
+          color: #8A959B;
+          font-family: var(--font-gotham-book);
+          font-weight: 500;
+          font-size: 1.375rem;
+          line-height: normal;
+          letter-spacing: 0px;
+          border-bottom: 1px solid #8A959B;
+          opacity: 0;
+          transform: translateY(-1.875rem);
+          animation: fadeInUp 0.5s forwards;
+          transition: color 0.5s ease;
+          padding: 1.25rem 0;
+
+          &:first-child{
+            padding-top: 0;
+          }
+
+          &:hover{
+            color: #F80D5A;
+            border-bottom: 1px solid #F80D5A;
+            transition: color 0.5s ease;
+          }
+
+          &:nth-child(1) { animation-delay: 0.05s; }
+          &:nth-child(2) { animation-delay: 0.15s; }
+          &:nth-child(3) { animation-delay: 0.25s; }
+          &:nth-child(4) { animation-delay: 0.35s; }
+          &:nth-child(5) { animation-delay: 0.45s; }
+
+          span{
+            font-size: .8125rem;
+            text-transform: uppercase;
+            letter-spacing: 1.12px;
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsivo
+@media (min-width: 1025px) and (max-width: 1600px) {
+  .cursos{
+
+    .wrapper{
+      max-width: 100%;
+      padding: 4.375rem;
+
+      .menu {
+        gap: 1.25rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .cursos { 
+  height: auto;
+  margin-bottom: 6.125rem;
+
+  .wrapper {
+    max-width: 100%;
+    display: block;
+    padding: 1.9375rem;
+
+    .header {
+      .title {
+        font-size: 3.875rem;
+        line-height: 3.875rem;
+        margin-bottom: 2.25rem;
+      }
+
+      .subtitle {
+        font-size: 1.375rem;
+        line-height: 1.6875rem;
+      }
+    }
+
+    .menu {
+      width: 100%;
+      flex-direction: column;
+      gap: 0;
+      margin: 3.4375rem 0 0 0;
+
+      .menuItem {
+        width: 100%;
+        color: #ffffff;
+        font-family: var(--font-gotham-medium);
+        font-size: 1.875rem;
+        line-height: 1.875rem;
+        border-bottom: 1px solid #313738;
+        position: relative;
+        padding: 2.3125rem 0;
+
+        &::after {
+          display: none;
+        }
+
+        .menuItemTitle {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .button{
+            width: 3.75rem;
+            height: 3.75rem;
+            position: relative;
+            cursor: pointer;
+
+            &::before {
+              content: "";
+              position: absolute;
+              width: 3.75rem;
+              height: 3.75rem;
+              background-image: url('/icons/btn-plus.png');
+              background-size: contain;
+              background-repeat: no-repeat;
+            }
+          }
+
+          .buttonActive {
+            &::before {
+              background-image: url('/icons/btn-minus.png');
+            }
+          }
+        }
+      }
+    }
+
+    .courseContent {
+      min-height: 0;
+      padding: 1rem 0 0 0;
+      margin: 0;
+
+      .courseDescription {
+        margin-top: 1rem;
+
+        ul {
+          li {
+            color: #ffffff;
+            font-size: 1.125rem;
+            line-height: 1.25rem;
+            text-transform: none;
+            border-top: 1px solid #8A959B;
+            border-bottom: none;
+            display: flex;
+            flex-direction: column-reverse;
+
+            &:first-child {
+              border-top: 1px solid #8A959B;
+              padding-top: 1.25rem;
+            }
+
+            &:last-child {
+              border-top: 1px solid #8A959B;
+              padding-bottom: 0;
+            }
+
+            span {
+              color: #8A959B;
+              font-size: .625rem;
+              line-height: 1.25rem;
+              margin-left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+}
+
+// Keyframes
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(-1.875rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInOnly {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
