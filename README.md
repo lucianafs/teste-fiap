@@ -1,4 +1,4 @@
-# Next.js Landing Page with TypeScript and SCSS
+# Teste Técnico Front-end – FIAP
 
 Este projeto é uma landing page desenvolvida com Next.js, TypeScript e SCSS. A página inclui seções como Navbar, Header, Intro, Cursos e FAQ, com suporte para resoluções de desktop e mobile.
 
